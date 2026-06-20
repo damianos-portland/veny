@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, #f1ebfa 0%, transparent 55%),
+    radial-gradient(900px 500px at 0% 30%, #f4efe7 0%, transparent 45%),
+    #fdfcff;
+  color: #2b2440;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, .ff-display { font-family: var(--font-display), system-ui, sans-serif; }
+
+::selection { background: rgba(109,74,166,0.18); }
+
+/* language toggle helper */
+body:not(.en) .lang-en { display: none; }
+body.en .lang-el { display: none; }
+
+/* gentle float for the avatar */
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+.floaty { animation: floaty 5s ease-in-out infinite; }
+
+/* speech bubble tail */
+.bubble::after {
+  content: "";
+  position: absolute; bottom: -8px; right: 34px;
+  width: 16px; height: 16px; background: inherit;
+  border-bottom: 1px solid var(--tw-shadow-color, #ece7f3);
+  border-right: 1px solid #ece7f3;
+  transform: rotate(45deg);
+}
