@@ -10,7 +10,18 @@ export function FloatingAvatar() {
   const { lang, active, muted, toggleMute, avatar, setAvatar, openChat, toggleLang } = useGuide();
   const step = GUIDE_MAP[active] ?? GUIDE_MAP["hero"];
   const [nudge, setNudge] = useState(false);
+  const [vw, setVw] = useState(1280);
   const idle = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  // track viewport width so she can "walk" across the page on desktop
+  useEffect(() => {
+    const onR = () => setVw(window.innerWidth);
+    onR();
+    window.addEventListener("resize", onR);
+    return () => window.removeEventListener("resize", onR);
+  }, []);
+  const mobile = vw < 768;
+  const travelX = mobile ? 0 : step.side === "left" ? -(vw - 344) : 0;
 
   // speak the line whenever the section/language changes (only if sound is on)
   useEffect(() => {
@@ -45,7 +56,11 @@ export function FloatingAvatar() {
     : step.msg[lang];
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex max-w-[88vw] flex-col items-end gap-2 sm:bottom-6 sm:right-6">
+    <motion.div
+      className="fixed bottom-4 right-4 z-50 flex max-w-[88vw] flex-col items-end gap-2 sm:bottom-6 sm:right-6"
+      animate={{ x: travelX }}
+      transition={{ type: "spring", stiffness: 55, damping: 18, mass: 0.9 }}
+    >
       {/* speech bubble */}
       <AnimatePresence mode="wait">
         {!minimized && (
@@ -110,6 +125,6 @@ export function FloatingAvatar() {
           />
         </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 }

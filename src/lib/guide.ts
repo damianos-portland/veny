@@ -3,6 +3,8 @@ export type Pose = "wave" | "arms" | "think" | "smile" | "tablet";
 export interface GuideStep {
   id: string;
   pose: Pose;
+  /** which side of the viewport she walks to in this section (desktop) */
+  side: "left" | "right";
   msg: { el: string; en: string };
 }
 
@@ -10,6 +12,7 @@ export interface GuideStep {
 export const GUIDE: GuideStep[] = [
   {
     id: "hero",
+    side: "right",
     pose: "wave",
     msg: {
       el: "Γεια σου! Είμαι η Βένη. Χαίρομαι που είσαι εδώ. Πώς μπορώ να σε βοηθήσω σήμερα;",
@@ -18,6 +21,7 @@ export const GUIDE: GuideStep[] = [
   },
   {
     id: "services",
+    side: "left",
     pose: "tablet",
     msg: {
       el: "Αυτές είναι οι υπηρεσίες μου — κάθε διαδρομή προσαρμόζεται σε εσένα.",
@@ -26,6 +30,7 @@ export const GUIDE: GuideStep[] = [
   },
   {
     id: "who",
+    side: "right",
     pose: "arms",
     msg: {
       el: "Ίσως αναγνωρίσεις τον εαυτό σου εδώ. Δεν είσαι μόνος/η.",
@@ -34,6 +39,7 @@ export const GUIDE: GuideStep[] = [
   },
   {
     id: "method",
+    side: "left",
     pose: "think",
     msg: {
       el: "Να σου δείξω πώς δουλεύουμε μαζί, βήμα-βήμα.",
@@ -42,6 +48,7 @@ export const GUIDE: GuideStep[] = [
   },
   {
     id: "process",
+    side: "right",
     pose: "smile",
     msg: {
       el: "Η πρώτη συνεδρία είναι απλή — μια γνωριμία, χωρίς πίεση.",
@@ -50,6 +57,7 @@ export const GUIDE: GuideStep[] = [
   },
   {
     id: "faq",
+    side: "right",
     pose: "think",
     msg: {
       el: "Έχεις απορίες; Ρώτησέ με ό,τι θέλεις.",
@@ -58,6 +66,7 @@ export const GUIDE: GuideStep[] = [
   },
   {
     id: "contact",
+    side: "left",
     pose: "wave",
     msg: {
       el: "Όποτε νιώσεις έτοιμος/η, κλείσε ραντεβού. Είμαι εδώ.",
