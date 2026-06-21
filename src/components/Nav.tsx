@@ -21,7 +21,7 @@ export function Nav() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
           </span>
           <span className="font-display text-[0.98rem] font-semibold leading-none text-ink">
-            Βένη Τσαμπροπούλου
+            <span className="lang-el">Βένη Τσαμπροπούλου</span><span className="lang-en">Veny Tsampropoulou</span>
             <span className="mt-0.5 block text-[0.66rem] font-normal text-muted">
               <span className="lang-el">Σύμβουλος Ψυχικής Υγείας</span>
               <span className="lang-en">Mental Health Counsellor</span>

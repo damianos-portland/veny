@@ -244,7 +244,7 @@ export function Footer() {
     <footer className="border-t border-line bg-white">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-display font-semibold text-ink">Βένη Τσαμπροπούλου</p>
+          <p className="font-display font-semibold text-ink"><Bi el="Βένη Τσαμπροπούλου" en="Veny Tsampropoulou" /></p>
           <p className="mt-1"><Bi el="Σύμβουλος Ψυχικής Υγείας · Αθήνα" en="Mental Health Counsellor · Athens" /></p>
         </div>
         <p className="max-w-sm text-xs leading-relaxed text-muted/80">
